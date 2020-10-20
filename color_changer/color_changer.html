@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Changer</title>
+    <link rel="stylesheet" href="color_changer.css">
+</head>
+
+<body>
+    <div class="control">
+        <input type="text" id="submitColor">
+        <div class="button unselectable" onclick="submitColor()">Submit Color</div>
+        <div class="button unselectable" onclick="changeColor()">Change Color</div>
+        <div class="button unselectable" onclick="deleteColor()">Delete Color</div>
+        <div id="colorName"></div>
+    </div>
+
+</body>
+<script src="color_changer.js"></script>
+
+</html>
