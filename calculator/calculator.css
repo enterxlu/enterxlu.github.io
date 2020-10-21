@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-weight: normal;
+}
+
+body {
+    background-image: url(img/wood-wallpaper-desktop-2048x1368-for-macbook.jpg);
+}
+
+a {
+    display: inline-block;
+    width: 8rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    margin: 300px auto;
+    width: 350px;
+    height: 458px;
+    background-color: black;
+    border-radius: 10px;
+    box-shadow: 10px 10px 29px -5px rgba(0,0,0,0.75);
+}
+
+.display {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 320px;
+    height: 90px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    font-size: 60px;
+    line-height: 90px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.keyboard {
+    position: absolute;
+    top: 120px;
+    left:15px;
+    width: 320px;
+    height: 323px;
+    background-color: white;
+    border-radius: 10px;
+}
+.key {
+    float: left;
+    width: 61px;
+    height: 61px;
+    margin-left: 16px;
+    margin-top: 16px;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    line-height: 64px;
+    text-align: center;
+    font-size: 40px;
+    /* unselectable */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.color{
+    background-color: darkorange;
+}
+.keyboard .color:active{
+    background-color: rgb(255, 191, 113);
+}
+
+.key:active {
+    background-color: rgb(116, 116, 116);
+}
