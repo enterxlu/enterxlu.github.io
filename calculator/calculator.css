@@ -9,20 +9,9 @@ body {
     background-image: url(img/wood-wallpaper-desktop-2048x1368-for-macbook.jpg);
 }
 
-a {
-    display: inline-block;
-    width: 8rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-}
-
 .container {
     position: relative;
-    margin: 300px auto;
+    margin: 100px auto;
     width: 350px;
     height: 458px;
     background-color: black;
