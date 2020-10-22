@@ -3,6 +3,7 @@
     padding: 0;
     font-family: Arial;
     font-weight: normal;
+    box-sizing: border-box;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 
 .container {
     position: relative;
-    margin: 100px auto;
+    margin: 20px auto;
     width: 350px;
     height: 458px;
     background-color: black;
@@ -25,12 +26,13 @@ body {
     left: 15px;
     width: 320px;
     height: 90px;
+    padding-right: 15px;
     background-color: white;
     color: black;
     border-radius: 10px;
     font-size: 60px;
     line-height: 90px;
-    text-align: center;
+    text-align: right;
     overflow: hidden;
 }
 
@@ -73,4 +75,5 @@ body {
 
 .key:active {
     background-color: rgb(116, 116, 116);
+    box-shadow: inset 3px 5px 5px 0px rgba(0,0,0,0.75);
 }
