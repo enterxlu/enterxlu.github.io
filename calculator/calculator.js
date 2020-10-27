@@ -1,7 +1,20 @@
+// Global Varialbe
 let stored_num = 0;
-let current_num = 0;
+let current_num = "0";
 let current_operation = "";
 let display = document.getElementById("display");
+
+/**
+ * checkOverflow
+ * input: n/a
+ * output: alert user
+ */
+setInterval(() => {
+    if (current_num.length > 9) {
+        alert("Digit number canot be over 8");
+        pressKeyClear();
+    }
+}, 500);
 
 /*************************
  * pressNum
@@ -9,9 +22,8 @@ let display = document.getElementById("display");
  * output: display number
  *************************/
 function pressNum(digit) {
-    current_num *= 10;
     current_num += digit;
-    display.innerHTML = current_num;
+    display.innerHTML = parseFloat(current_num);
 }
 
 /*************************
@@ -20,7 +32,7 @@ function pressNum(digit) {
  *************************/
 function pressKeyClear() {
     stored_num = 0;
-    current_num = 0;
+    current_num = "0";
     current_operation = "";
     display.innerHTML = current_num;
 }
@@ -33,8 +45,8 @@ function pressKeyClear() {
 function pressKey(operation) {
     pressKeyEqual();
     current_operation = operation;
-    stored_num = current_num;
-    current_num = 0;
+    stored_num = parseFloat(current_num);
+    current_num = "0";
 }
 
 /*************************
@@ -43,35 +55,32 @@ function pressKey(operation) {
  * output: display number
  *************************/
 function pressKeyEqual() {
-    function reset() {
-        stored_num = 0;
-        current_operation = "";
-    }
+    let current_num_f = parseFloat(current_num);
     if (current_operation == "+") {
-        current_num += stored_num;
-        reset();
+        current_num = stored_num + current_num_f + "";
     }
     if (current_operation == "-") {
-        current_num = stored_num - current_num;
-        reset();
+        current_num = stored_num - current_num_f + "";
     }
     if (current_operation == "*") {
-        current_num *= stored_num;
-        reset();
+        current_num = stored_num * current_num_f + "";
     }
     if (current_operation == "/") {
-        current_num = stored_num / current_num;
-        reset();
+        current_num = stored_num / current_num_f + "";
     }
-    display.innerHTML = current_num;
+    stored_num = 0;
+    current_operation = "";
+    display.innerHTML = parseFloat(current_num);
 }
 
-/**
- * check if the digit is too much to be shown
- */
-window.setInterval(function () {
-    if (display.innerHTML.length > 9) {
-        alert("Digit overflow");
-        pressKeyClear();
+/*********************************
+ * pressKeyDecimal
+ * input: n/a
+ * output: add decimal to number
+ **********************************/
+function pressKeyDecimal() {
+    if (current_num.indexOf(".") == -1) {
+        current_num = parseFloat(current_num) + ".";
+        display.innerHTML = current_num;
     }
-}, 300);
+}

@@ -77,3 +77,30 @@ body {
     background-color: rgb(116, 116, 116);
     box-shadow: inset 3px 5px 5px 0px rgba(0,0,0,0.75);
 }
+
+.keyClear {
+    position: absolute;
+    top: -105px;
+    left: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 35px;
+    height: 90px;
+    line-height: 90px;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    background-color: darkorange;
+    /* unselectable */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.keyClear:active{
+    background-color: rgb(255, 191, 113);
+    box-shadow: inset 3px 5px 5px 0px rgba(0,0,0,0.75);
+}
