@@ -4,18 +4,6 @@ let current_num = "0";
 let current_operation = "";
 let display = document.getElementById("display");
 
-/**
- * checkOverflow
- * input: n/a
- * output: alert user
- */
-setInterval(() => {
-    if (current_num.length > 9) {
-        alert("Digit number canot be over 8");
-        pressKeyClear();
-    }
-}, 500);
-
 /*************************
  * pressNum
  * input: number clicked
@@ -68,6 +56,9 @@ function pressKeyEqual() {
     if (current_operation == "/") {
         current_num = stored_num / current_num_f + "";
     }
+    if (current_operation == "EE") {
+        current_num = stored_num * Math.pow(10, parseFloat(current_num));
+    }
     stored_num = 0;
     current_operation = "";
     display.innerHTML = parseFloat(current_num);
@@ -83,4 +74,34 @@ function pressKeyDecimal() {
         current_num = parseFloat(current_num) + ".";
         display.innerHTML = current_num;
     }
+}
+
+/******************************************
+ * pressKeyPi
+ * input: n/a
+ * output: if current number is 0 show pi
+ * else show product with pi
+ ******************************************/
+function pressKeyPi() {
+    if (parseFloat(current_num) === 0) {
+        current_num = Math.PI + "";
+    } else {
+        current_num = parseFloat(current_num) * Math.PI + "";
+    }
+    display.innerHTML = parseFloat(current_num);
+}
+
+/**
+ * pressKeyTrig
+ * input: sin/cos
+ * output: result of sin/cos(rad)
+ */
+function pressKeyTrig(operation) {
+    if (operation == "sin") {
+        current_num = Math.sin(parseFloat(current_num)) + "";
+    }
+    if (operation == "cos") {
+        current_num = Math.cos(parseFloat(current_num)) + "";
+    }
+    display.innerHTML = parseFloat(current_num);
 }
