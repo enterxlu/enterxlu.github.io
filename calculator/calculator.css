@@ -25,8 +25,7 @@ body {
     text-align: right;
     overflow: hidden;
     border: black 5px solid;
-    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 5px 5px 20px -8px #000000;
 }
 
 .keyboard {
@@ -36,12 +35,11 @@ box-shadow: 0px 0px 15px 0px #000000;
     justify-content: center;
     align-items: center;
     width: 330px;
-    height: 410px;
+    /* height: 470px; */
     background-color: white;
     border-radius: 10px;
     border: black 5px solid;
-    -webkit-box-shadow: 0px 0px 15px 0px #000000; 
-box-shadow: 0px 0px 15px 0px #000000;
+    box-shadow: 5px 5px 20px -8px #000000;
 }
 .key {
    margin: 8px;
@@ -101,8 +99,7 @@ box-shadow: 0px 0px 15px 0px #000000;
     box-shadow: inset 3px 5px 5px 0px rgba(0,0,0,0.75);
 }
 
-#keyEE,
-#keyTrigSin,
-#keyTrigCos {
-    font-size: 2em;
+.keyTrig,
+#keyEE {
+    font-size: 1.5em;
 }

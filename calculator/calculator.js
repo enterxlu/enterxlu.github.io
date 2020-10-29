@@ -57,7 +57,7 @@ function pressKeyEqual() {
         current_num = stored_num / current_num_f + "";
     }
     if (current_operation == "EE") {
-        current_num = stored_num * Math.pow(10, parseFloat(current_num));
+        current_num = stored_num * Math.pow(10, current_num_f);
     }
     stored_num = 0;
     current_operation = "";
@@ -91,17 +91,30 @@ function pressKeyPi() {
     display.innerHTML = parseFloat(current_num);
 }
 
-/**
+/**********************************
  * pressKeyTrig
- * input: sin/cos
- * output: result of sin/cos(rad)
- */
+ * input: sin/cos/tan/asin/acos/atan
+ * output: result of sin/cos/tan/asin/acos/atan(rad)
+ **********************************/
 function pressKeyTrig(operation) {
+    let current_num_f = parseFloat(current_num);
     if (operation == "sin") {
-        current_num = Math.sin(parseFloat(current_num)) + "";
+        current_num = Math.sin(current_num_f) + "";
     }
     if (operation == "cos") {
-        current_num = Math.cos(parseFloat(current_num)) + "";
+        current_num = Math.cos(current_num_f) + "";
+    }
+    if (operation == "tan") {
+        current_num = Math.tan(current_num_f) + "";
+    }
+    if (operation == "asin") {
+        current_num = Math.asin(current_num_f) + "";
+    }
+    if (operation == "acos") {
+        current_num = Math.acos(current_num_f) + "";
+    }
+    if (operation == "atan") {
+        current_num = Math.atan(current_num_f) + "";
     }
     display.innerHTML = parseFloat(current_num);
 }
