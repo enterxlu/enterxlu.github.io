@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#sequence {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 400px;
+    border: black solid 3px;
+    padding: 10px;
+}
