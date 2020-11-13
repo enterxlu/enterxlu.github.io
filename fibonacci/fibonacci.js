@@ -1,7 +1,7 @@
 
 function updateWebpage() {
     let n = document.getElementById("fib-length").value;
-    if (n > 1000) {
+    if (n > 170) {
         return document.getElementById("fib-length").value = "Too much!"
     }
     displayFibSequence(n, "sequence");
