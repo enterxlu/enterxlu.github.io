@@ -24,18 +24,18 @@
 </head>
 
 <body>
-    <section>
-        <a href="../index.html">Home</a>
-        <div class="container">
-            <h1>Fibonacci</h1>
-            <input type="text" id="fib-length" value="" placeholder="Enter length of sequence under 1000"
-                oninput="updateWebpage();">
-            <h3>Golden Ratio</h3>
-            <div id="golden-ratio" class="box"></div>
-            <h3>Fibonacci sequence</h3>
-            <div id="sequence" class="box"></div>
-        </div>
-    </section>
+    <a href="../index.html">Home</a>
+    <div class="container">
+        <h1>Fibonacci</h1>
+        <input type="text" id="fib-length" value="" placeholder="Enter length of sequence under 1000"
+            oninput="updateWebpage();">
+        <h3>Facts</h3>
+        <div id="fact" class="box" onclick="displayFact('fact')"></div>
+        <h3>Golden Ratio</h3>
+        <div id="golden-ratio" class="box"></div>
+        <h3>Sequence</h3>
+        <div id="sequence" class="box"></div>
+    </div>
 </body>
 <script src="fibonacci.js"></script>
 

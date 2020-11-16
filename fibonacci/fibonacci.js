@@ -1,7 +1,20 @@
+let facts = ["aaaaaaaa", "bbbbbbbbb", "cccccccccc"];
+let current_fact = 0;
+
+displayFact("fact");
+
+function displayFact(id) {
+    document.getElementById(id).innerHTML = facts[current_fact];
+    if (current_fact >= facts.length - 1) {
+        current_fact = 0;
+    } else {
+        current_fact++;
+    }
+}
 
 function updateWebpage() {
     let n = document.getElementById("fib-length").value;
-    if (n > 170) {
+    if (n > 1000) {
         return document.getElementById("fib-length").value = "Too much!"
     }
     displayFibSequence(n, "sequence");
