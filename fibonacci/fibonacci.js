@@ -20,11 +20,12 @@ function displayFact() {
 /**
  * updateWebpage
  * output: when oninput the length change the Sequence and Golden Ratio
+ * if number input is over 1477 make it 1477
  */
 function updateWebpage() {
     let n = document.getElementById("fib-length").value;
     if (n > 1477) {
-        return document.getElementById("fib-length").value = "Max 1477!"
+        return document.getElementById("fib-length").value = "1477"
     }
     displayFibSequence(n);
     displayGoldenRatio(n);
