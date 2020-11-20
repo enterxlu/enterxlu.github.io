@@ -14,6 +14,7 @@ body {
     margin: 50px auto;
 }
 a {
+    margin: 0.2rem;
     display: inline-block;
     width: 8rem;
     height: 1.5rem;
