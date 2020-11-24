@@ -35,7 +35,7 @@ input {
 }
 
 button {
-    margin-left: 10px;
+    margin: 5px;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     line-height: 1.5rem;
