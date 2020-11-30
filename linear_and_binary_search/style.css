@@ -11,7 +11,7 @@ body {
     color: white;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(darkorange, darkorange,orange);
+    background: linear-gradient(#168CF5, #1BA2FB,#24CFF6);
 }
 
 .container {
@@ -50,4 +50,9 @@ button:hover {
 
 button:active {
     transform: translate(0,2px);
+}
+
+.current-index {
+    color: black;
+    font-size: 1.5rem;
 }
