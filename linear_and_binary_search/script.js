@@ -1,9 +1,14 @@
 let list_of_numbers = [];
 let current_number_index = 10;
-let checked_index = [0, 1, 2, 3, 4];
-let rejected_index = [8, 9, 10];
+let checked_index = [];
+let rejected_index = [];
+let seek_number = -1;
+let lower_bound;
+let upper_bound;
+
 
 makeListOfNumbers();
+getSeekNumber();
 
 /**
 * checkInList(index, list)
@@ -74,6 +79,7 @@ function makeListOfNumbers() {
 
     current_number_index = Math.floor(n / 2);
     displayList(list_of_numbers);
+    // reset();
 }
 
 /**
@@ -87,3 +93,56 @@ function reset() {
     rejected_index = [];
     displayList(list_of_numbers);
 }
+
+function getSeekNumber() {
+    if (Math.random() < 0.1) { //pick any random number
+        seek_number = Math.floor(Math.random() * (list_of_numbers[list_of_numbers.length - 1] + 5))
+    }
+    else { //pick a random number from the list
+        seek_index = Math.floor(Math.random() * (list_of_numbers.length - 1))
+        seek_number = list_of_numbers[seek_index];
+    }
+    displaySeekNumber();
+}
+
+function displaySeekNumber() {
+    document.getElementById("seek-display").innerHTML = "Seek Number: " + seek_number;
+}
+
+function useBinarySearch() {
+    if (current_number_index == -1) {
+        lower_bound = 0;
+        upper_bound = list_of_numbers.length - 1;
+        current_number_index = Math.floor(lower_bound + (upper_bound - lower_bound) / 2);
+    }
+    if (list_of_numbers[current_number_index] != seek_number) {
+        if (upper_bound < lower_bound) {
+            return;
+        }
+    }
+}
+// Procedure binary_search
+//    A ← sorted array
+//    n ← size of array
+//    x ← value to be searched
+
+//    Set lowerBound = 1
+//    Set upperBound = n 
+
+//    while x not found
+//       if upperBound < lowerBound 
+//          EXIT: x does not exists.
+
+//       set midPoint = lowerBound + ( upperBound - lowerBound ) / 2
+
+//       if A[midPoint] < x
+//          set lowerBound = midPoint + 1
+
+//       if A[midPoint] > x
+//          set upperBound = midPoint - 1 
+
+//       if A[midPoint] = x 
+//          EXIT: x found at location midPoint
+//    end while
+
+// end procedure
