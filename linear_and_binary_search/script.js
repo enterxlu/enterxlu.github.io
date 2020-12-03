@@ -79,7 +79,7 @@ function makeListOfNumbers() {
 
     current_number_index = Math.floor(n / 2);
     displayList(list_of_numbers);
-    // reset();
+    reset();
 }
 
 /**
@@ -92,6 +92,7 @@ function reset() {
     checked_index = [];
     rejected_index = [];
     displayList(list_of_numbers);
+    document.getElementById("result-display").innerText = "Searching...";
 }
 
 function getSeekNumber() {
@@ -109,18 +110,55 @@ function displaySeekNumber() {
     document.getElementById("seek-display").innerHTML = "Seek Number: " + seek_number;
 }
 
+function displayCount() {
+    document.getElementById("count-display").innerHTML = "Count: " + checked_index.length;
+}
+
+function markRejectedNumber(index, bigger) {
+    if (bigger == false) {
+        for (let i = 0; i < index; i++) {
+            rejected_index.push(i);
+        }
+    }
+    if (bigger == true) {
+        for (let i = index; i < list_of_numbers.length; i++) {
+            rejected_index.push(i);
+        }
+    }
+}
+
 function useBinarySearch() {
     if (current_number_index == -1) {
         lower_bound = 0;
         upper_bound = list_of_numbers.length - 1;
-        current_number_index = Math.floor(lower_bound + (upper_bound - lower_bound) / 2);
+
     }
+
+    current_number_index = Math.floor(lower_bound + (upper_bound - lower_bound) / 2);
+
     if (list_of_numbers[current_number_index] != seek_number) {
+        checked_index.push(current_number_index);
+
         if (upper_bound < lower_bound) {
+            displayList(list_of_numbers);
+            return;
+        }
+        if (list_of_numbers[current_number_index] < seek_number) {
+            lower_bound = current_number_index + 1;
+            markRejectedNumber(current_number_index, false);
+        }
+        if (list_of_numbers[current_number_index] > seek_number) {
+            upper_bound = current_number_index - 1;
+            markRejectedNumber(current_number_index, true);
+        }
+        if (list_of_numbers[current_number_index] == seek_number) {
             return;
         }
     }
+    displayList(list_of_numbers);
+    displayCount();
 }
+
 // Procedure binary_search
 //    A ← sorted array
 //    n ← size of array
@@ -144,5 +182,3 @@ function useBinarySearch() {
 //       if A[midPoint] = x 
 //          EXIT: x found at location midPoint
 //    end while
-
-// end procedure
