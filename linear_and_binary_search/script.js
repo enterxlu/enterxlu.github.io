@@ -8,7 +8,6 @@ let upper_bound;
 
 
 makeListOfNumbers();
-getSeekNumber();
 
 /**
 * checkInList(index, list)
@@ -79,6 +78,7 @@ function makeListOfNumbers() {
 
     current_number_index = Math.floor(n / 2);
     displayList(list_of_numbers);
+    getSeekNumber();
     reset();
 }
 
@@ -92,9 +92,13 @@ function reset() {
     checked_index = [];
     rejected_index = [];
     displayList(list_of_numbers);
-    document.getElementById("result-display").innerText = "Searching...";
 }
 
+/**
+ * getSeekNumber()
+ * input: N/A
+ * output: get a random number or a random number form the list
+ */
 function getSeekNumber() {
     if (Math.random() < 0.1) { //pick any random number
         seek_number = Math.floor(Math.random() * (list_of_numbers[list_of_numbers.length - 1] + 5))
@@ -106,14 +110,29 @@ function getSeekNumber() {
     displaySeekNumber();
 }
 
+/**
+ * displaySeekNumber()
+ * input: N/A
+ * output: display seek number
+ */
 function displaySeekNumber() {
     document.getElementById("seek-display").innerHTML = "Seek Number: " + seek_number;
 }
 
+/**
+ * displayCount()
+ * input: N/A
+ * output: display length of checked number
+ */
 function displayCount() {
     document.getElementById("count-display").innerHTML = "Count: " + checked_index.length;
 }
 
+/**
+ * markRejectedNumber()
+ * input: index of middle number, bigger or not
+ * output: push all bigger or smaller number to rejected list
+ */
 function markRejectedNumber(index, bigger) {
     if (bigger == false) {
         for (let i = 0; i < index; i++) {
@@ -127,6 +146,11 @@ function markRejectedNumber(index, bigger) {
     }
 }
 
+/***
+ * useBinarySearch()
+ * input: N/A
+ * output: send all needed value to other function and display the built list of numbers
+ */
 function useBinarySearch() {
     if (current_number_index == -1) {
         lower_bound = 0;
@@ -182,3 +206,22 @@ function useBinarySearch() {
 //       if A[midPoint] = x 
 //          EXIT: x found at location midPoint
 //    end while
+
+function useLinearSearch() {
+    if (current_number_index == -1) {
+        current_number_index = 0;
+    }
+
+    if (current_number_index == list_of_numbers.length) {
+        return;
+    }
+
+    if (list_of_numbers[current_number_index] == seek_number) {
+        return;
+    }
+
+    checked_index.push(current_number_index);
+    current_number_index += 1;
+    displayList(list_of_numbers);
+    displayCount();
+}
